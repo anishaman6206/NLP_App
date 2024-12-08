@@ -51,12 +51,12 @@
     margin-bottom: 20px;
 }
 
-ul-login {
+.ul-login {
     list-style-type: none;
     padding-left: 0;
 }
 
-ul-login li {
+.ul-login li {
     margin: 10px 0;
     font-size: 1rem;
 }
