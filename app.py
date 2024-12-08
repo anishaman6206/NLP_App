@@ -2,7 +2,8 @@ from flask import Flask, render_template, request, redirect, session
 from db import Database
 from api import API
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
+
 
 # Set a secret key for session management
 app.secret_key = 'nlpapp_12345'
@@ -119,4 +120,4 @@ def logout():
     return redirect('/')  # Redirect to login page after logging out
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
