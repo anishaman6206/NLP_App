@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container_profile">
+        <div class="header">
+            <h1>Welcome to Your Profile</h1>
+            <p>What would you like to do today?</p>
+        </div>
+
+        <div class="menu">
+            <ul>
+                <li><a href="/language_detection" class="menu-item">Language Detection</a></li>
+                <li><a href="/language_translation" class="menu-item">Language Translate (en-hi)</a></li>
+                <li><a href="/emotion_prediction" class="menu-item">Emotion Prediction</a></li>
+                <li><a href="/sentiment_analysis" class="menu-item">Sentiment Analysis</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

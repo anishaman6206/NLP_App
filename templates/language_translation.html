@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Translation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+         <p class="mssg">This may take few seconds</p>
+        <!-- Translation Form -->
+        <form action="/translate_en_hi" method="post">
+            <label for="text">Type your text here</label>
+            <textarea name="text" id="text" required>{{ request.form['text'] if request.form.get('text') else '' }}</textarea>
+            <input type="submit" value="Translate">
+        </form>
+
+        <!-- Translated Text Result -->
+        {% if result %}
+            <div class="results">
+                <h2>Translated Text</h2>
+                <p>{{ result }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

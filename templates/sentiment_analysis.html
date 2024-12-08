@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+         <p class="mssg">This may take few seconds</p>
+        <!-- Form for input -->
+        <form action="/analyze_sentiment" method="post">
+            <label for="text">Type your text here</label>
+            <textarea name="text" id="text" required>{{ request.form['text'] if request.form.get('text') else '' }}</textarea>
+            <input type="submit" value="Analyze Sentiment">
+        </form>
+
+        <!-- Results section -->
+        {% if result %}
+            <div class="results">
+                <h2>Sentiment Analysis Results</h2>
+                 <pre>
+{% for item in result %}
+{% for i in range(3) %}
+Sentiment: {{ item[i].label }}    Score: {{ '{:.2f}'.format(item[i].score) }}
+{% endfor %}
+{% endfor %}
+    </pre>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

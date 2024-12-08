@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+         <p class="mssg">This may take few seconds</p>
+        <!-- Language Detection Form -->
+        <form action="/detect_lang" method="post">
+            <label for="text">Type your text here</label>
+            <textarea name="text" id="text" required>{{ request.form['text'] if request.form.get('text') else '' }}</textarea>
+            <input type="submit" value="Detect Language">
+        </form>
+
+        <!-- Detected Language Result -->
+        {% if result %}
+            <div class="results">
+                <h2>Language Detection Results</h2>
+                {% for item in result %}
+                    <p>Language: {{ item['label'] }}<br>Confidence: {{ '{:.2f}'.format(item['score']) }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

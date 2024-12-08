@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NLP App | Login Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="body-login">
+    <div class="container-login">
+        <!-- Left Side (App Information) -->
+        <div class="info-box">
+            <h1 class="app-title">NLP App</h1>
+            <p class="app-description">Welcome to the NLP App! Our platform uses advanced Natural Language Processing techniques to provide several useful text-based services, such as language detection, translation, emotion prediction, and sentiment analysis.</p>
+
+            <p><strong>Key Features:</strong></p>
+            <ul class="ul-login">
+                <li>Detect languages from text inputs.</li>
+                <li>Translate English to Hindi seamlessly.</li>
+                <li>Predict emotions in the given text.</li>
+                <li>Analyze sentiment and tone of the content.</li>
+            </ul>
+        </div>
+
+        <!-- Right Side (Login Form) -->
+        <div class="login-box">
+            <h3 class="login-h3">Login to Start Using Our Services</h3>
+
+            {% if message %}
+                <p class="message-red">{{ message }}</p>
+            {% endif %}
+
+            <form action="/perform_login" method="post">
+                <div class="input-group">
+                    <label for="user_email">Email</label>
+                    <input type="email" name="user_email" id="user_email" required>
+                </div>
+                <div class="input-group">
+                    <label for="user_password">Password</label>
+                    <input type="password" name="user_password" id="user_password" required>
+                </div>
+                <input type="submit" value="Login" class="btn-submit">
+            </form>
+
+            <div class="register-link">
+                <p>Not a member? <a href="/register">Register Here</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
