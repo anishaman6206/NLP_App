@@ -144,7 +144,7 @@ a:hover {
     }
 
     .info-box, .login-box {
-        width: 80%;   /* Reduce width to make them take up more space on small screens */
+        width: 95%;   /* Reduce width to make them take up more space on small screens */
     }
 }
 
@@ -245,7 +245,7 @@ a:hover {
 /* Responsive styles for smaller screens */
 @media (max-width: 600px) {
     .register-box {
-        width: 80%;
+        width: 95%;
     }
 }
 
