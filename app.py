@@ -168,4 +168,4 @@ def logout():
     return redirect('/')  # Redirect to login page after logging out
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
