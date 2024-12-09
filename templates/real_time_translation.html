@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Real-Time Translation</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+<div class="container">
+    <h1>Real-Time Translation</h1>
+    <p class="mssg">This may take few seconds</p>
+    <form action="/perform_translation" method="post">
+        <label for="text">Enter Text:</label>
+        <textarea name="text" id="text" placeholder="Type the text to translate..." required>{{ request.form['text'] if request.form.get('text') else '' }}</textarea>
+
+        <label for="source_language">Source Language Code (e.g., 'en' for English):</label>
+        <input type="text" name="source_language" placeholder="e.g., en" required>
+
+        <label for="target_language">Target Language Code (e.g., 'hi' for Hindi):</label>
+        <input type="text" name="target_language" placeholder="e.g., hi" required><br><br>
+
+        <input type="submit" value="Translate">
+    </form>
+
+    {% if result %}
+
+        <div class="results">
+            <h2>Translated Text:</h2>
+            <pre>
+            <p>{{ result }}</p>
+            </pre>
+        </div>
+    {% endif %}
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyword Extraction</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+<div class="container">
+    <h1>Keyword Extraction</h1>
+    <p class="mssg">This may take few seconds</p>
+    <form action="/perform_keyword_extraction" method="post">
+        <label>Enter Text:</label><br>
+        <textarea name="text" rows="6" cols="50"></textarea><br>
+        <input type="submit" value="Extract Keywords">
+    </form>
+    {% if result %}
+    <div class="results">
+        <h2>Extracted Keywords:</h2>
+        <pre>
+        <ul>
+            {% for keyword in result %}
+                <li>{{ keyword }}</li>
+            {% endfor %}
+        </ul>
+        </pre>
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>

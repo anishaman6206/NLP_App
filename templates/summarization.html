@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Summarization</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+<div class="container">
+    <h1>Text Summarization</h1>
+         <p class="mssg">This may take few seconds</p>
+
+    <form action="/perform_summarization" method="post">
+        <label>Enter Text:</label><br>
+        <textarea name="text" rows="6" cols="50">{{ request.form['text'] if request.form.get('text') else '' }}</textarea><br>
+        <input type="submit" value="Summarize">
+    </form>
+    {% if result %}
+    <div class="results">
+        <h2>Summary:</h2>
+        <pre>
+        <p>{{ result }}</p>
+        </pre>
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>

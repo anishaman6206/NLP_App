@@ -13,12 +13,15 @@
             <h1 class="app-title">NLP App</h1>
             <p class="app-description">Welcome to the NLP App! Our platform uses advanced Natural Language Processing techniques to provide several useful text-based services, such as language detection, translation, emotion prediction, and sentiment analysis.</p>
 
-            <p><strong>Key Features:</strong></p>
+            <h4><strong>Key Features:</strong></h4>
             <ul class="ul-login">
-                <li>Detect languages from text inputs.</li>
-                <li>Translate English to Hindi seamlessly.</li>
-                <li>Predict emotions in the given text.</li>
-                <li>Analyze sentiment and tone of the content.</li>
+
+        <li>Detect languages from text inputs.</li>
+        <li>Predict emotions in the given text.</li>
+        <li>Analyze sentiment and tone of the content.</li>
+        <li>Real-Time Translation between any source and target language.</li>
+        <li>Text Summarization for concise and easy-to-understand summaries.</li>
+
             </ul>
         </div>
 
@@ -27,7 +30,7 @@
             <h3 class="login-h3">Login to Start Using Our Services</h3>
 
             {% if message %}
-                <p class="message-red">{{ message }}</p>
+                <p class="message-green">{{ message }}</p>
             {% endif %}
 
             <form action="/perform_login" method="post">
