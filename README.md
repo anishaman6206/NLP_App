@@ -42,11 +42,11 @@ Generate concise summaries of large textual content.
 
 #### 1. Clone the Repository  
 ```bash  
-git clone https://github.com/your-username/nlp-app.git  
-cd nlp-app  
+git clone https://github.com/anishaman6206/NLP_App.git  
+cd NLP_App  
 ```  
 
-#### 2. Set Up Virtual Environment (Optional but Recommended)  
+#### 2. Set Up Virtual Environment
 ```bash  
 python3 -m venv venv  
 source venv/bin/activate  # For Windows: venv\Scripts\activate  
@@ -83,7 +83,8 @@ nlp-app/
 ├── app.py               # Flask app entry point  
 ├── api.py               # API integration logic  
 ├── db.py                # Database integration logic  
-├── requirements.txt     # List of dependencies  
+├── requirements.txt     # List of dependencies 
+├── users.json   
 └── README.md            # Project documentation  
 ```  
 
