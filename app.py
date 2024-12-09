@@ -85,7 +85,7 @@ def predict_emotion():
 
     return render_template('emotion_prediction.html', result=result)
 
-@app.route('/language_translation')
+'''@app.route('/language_translation')
 def language_translation():
     # Check if the user is logged in, else redirect to login page
     if session.get('logged_in') != 1:
@@ -98,7 +98,7 @@ def translate_en_hi():
     result = apio.translate_en_to_hi(text)
 
     return render_template('language_translation.html', result=result)
-
+'''
 @app.route('/language_detection')
 def language_detection():
     # Check if the user is logged in, else redirect to login page
@@ -113,7 +113,7 @@ def detect_lang():
 
     return render_template('language_detection.html', result=result)
 
-@app.route('/paraphrasing')
+'''@app.route('/paraphrasing')
 def paraphrasing():
     return render_template('paraphrasing.html')
 
@@ -123,7 +123,7 @@ def perform_paraphrase():
     result = apio.paraphrase_text(text)
     return render_template('paraphrasing.html', result=result)
 
-
+'''
 @app.route('/summarization')
 def summarization():
     return render_template('summarization.html')
@@ -134,7 +134,7 @@ def perform_summarization():
     result = apio.summarize_text(text)
     return render_template('summarization.html', result=result)
 
-
+'''
 @app.route('/keyword_extraction')
 def keyword_extraction():
     return render_template('keyword_extraction.html')
@@ -144,7 +144,7 @@ def perform_keyword_extraction():
     text = request.form.get('text')
     result = apio.extract_keywords(text)
     return render_template('keyword_extraction.html', result=result)
-
+'''
 @app.route('/real_time_translation')
 def real_time_translation():
     return render_template('real_time_translation.html')
