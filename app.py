@@ -63,12 +63,6 @@ def sentiment_analysis():
 def analyze_sentiment():
     text = request.form.get('text')
     result = apio.sentiment_analysis(text)
-    while "error" in result and "loading" in result["error"].lower():
-        import time
-        print(result["error"])
-        print("Retrying in 3 seconds...")
-        time.sleep(3)  # Wait for 5 seconds before retrying
-
     return render_template('sentiment_analysis.html', result=result)
 
 @app.route('/emotion_prediction')
@@ -85,20 +79,7 @@ def predict_emotion():
 
     return render_template('emotion_prediction.html', result=result)
 
-'''@app.route('/language_translation')
-def language_translation():
-    # Check if the user is logged in, else redirect to login page
-    if session.get('logged_in') != 1:
-        return redirect('/')
-    return render_template('language_translation.html')
 
-@app.route('/translate_en_hi', methods=['post'])
-def translate_en_hi():
-    text = request.form.get('text')
-    result = apio.translate_en_to_hi(text)
-
-    return render_template('language_translation.html', result=result)
-'''
 @app.route('/language_detection')
 def language_detection():
     # Check if the user is logged in, else redirect to login page
@@ -113,17 +94,7 @@ def detect_lang():
 
     return render_template('language_detection.html', result=result)
 
-'''@app.route('/paraphrasing')
-def paraphrasing():
-    return render_template('paraphrasing.html')
 
-@app.route('/perform_paraphrase', methods=['post'])
-def perform_paraphrase():
-    text = request.form.get('text')
-    result = apio.paraphrase_text(text)
-    return render_template('paraphrasing.html', result=result)
-
-'''
 @app.route('/summarization')
 def summarization():
     return render_template('summarization.html')
@@ -134,17 +105,7 @@ def perform_summarization():
     result = apio.summarize_text(text)
     return render_template('summarization.html', result=result)
 
-'''
-@app.route('/keyword_extraction')
-def keyword_extraction():
-    return render_template('keyword_extraction.html')
 
-@app.route('/perform_keyword_extraction', methods=['post'])
-def perform_keyword_extraction():
-    text = request.form.get('text')
-    result = apio.extract_keywords(text)
-    return render_template('keyword_extraction.html', result=result)
-'''
 @app.route('/real_time_translation')
 def real_time_translation():
     return render_template('real_time_translation.html')
@@ -168,4 +129,4 @@ def logout():
     return redirect('/')  # Redirect to login page after logging out
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)
